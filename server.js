@@ -2,10 +2,10 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static('./dist/Angular_heroku_test'));
 
 app.get('/*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'dist', 'dist/Angular_heroku_test/index.html'));
+  res.sendFile('index.html', {root: 'dist/Angular_heroku_test'});
 });
 
 app.listen(5000 || process.env.PORT, () => {
