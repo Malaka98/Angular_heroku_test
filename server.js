@@ -8,4 +8,6 @@ app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'dist/my-app', 'index.html'));
 });
 
-app.listen(9000);
+app.listen(9000 || process.env.PORT, () => {
+  console.log("Server start");
+});
